@@ -1,22 +1,20 @@
 import Button from "./Button";
 
-const secondaryButtons = [
-	"Mark all as complete",
-	"Mark all as incomplete",
-	"Reset to initial",
-	"Remove all items",
-];
-
-function ButtonGroup() {
+function ButtonGroup({onRemoveAllItems, onResetToInitial, onMarkAll}) {
 	return (
 		<section className="button-group">
-			{secondaryButtons.map((text) => {
-				return (
-					<Button key={text} type="secondary">
-						{text}
-					</Button>
-				);
-			})}
+			<Button onClick={() => onMarkAll(true)} type="secondary">
+				Mark all as complete
+			</Button>
+			<Button onClick={() => onMarkAll(false)} type="secondary">
+				Mark all as incomplete
+			</Button>
+			<Button onClick={onResetToInitial} type="secondary">
+				Reset to initial
+			</Button>
+			<Button onClick={onRemoveAllItems} type="secondary">
+				Remove all items
+			</Button>
 		</section>
 	);
 }

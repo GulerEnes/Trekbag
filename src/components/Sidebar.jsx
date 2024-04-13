@@ -1,12 +1,16 @@
 import ButtonGroup from "./ButtonGroup";
 import AddItemForm from "./AddItemForm";
 
-function Sidebar() {
+function Sidebar({onAddItem, onRemoveAllItems, onResetToInitial, onMarkAll}) {
 	return (
 		<div className="sidebar">
-			<AddItemForm />
+			<AddItemForm onAddItem={onAddItem} />
 
-			<ButtonGroup />
+			<ButtonGroup
+				onRemoveAllItems={onRemoveAllItems}
+				onResetToInitial={onResetToInitial}
+				onMarkAll={onMarkAll}
+			/>
 		</div>
 	);
 }
